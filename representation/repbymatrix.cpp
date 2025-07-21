@@ -1,3 +1,5 @@
+
+// space comp- n square
 #include<iostream>
 using namespace std;
 int main(){
