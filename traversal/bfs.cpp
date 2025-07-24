@@ -4,7 +4,7 @@ using namespace std;
 #include<queue>
 
 // space complexity is some what near around 0(3N)
-// time complexity is 0(N) for while loop for the queue and for thr FOR LOOP its 0(degree)
+// time complexity is 0(N) for while loop for the queue and for the FOR LOOP its 0(degree)
 // note-> degree is all the node connected to a particular node and to find total degree 
 // the formula is 2*edges
 
