@@ -55,7 +55,6 @@ vector<int>bfs(vector<vector<int>>&adj){
 }
 
 int main()  {
-
     vector<vector<int>> adj = {{1,2}, {0,2,3}, {0,4}, {1,4}, {2,3}};
     vector<int> ans = bfs(adj);
     // print all the bfs eleemnts
