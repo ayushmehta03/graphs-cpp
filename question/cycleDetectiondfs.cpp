@@ -7,6 +7,7 @@ bool dfs(int node,vector<vector<int>>&adj,vector<int>&visited,int parent){
     visited[node]=1;
     for(auto adjacentNode:adj[node]){
         if(!visited[adjacentNode]){
+            // only difference cause if we get any cycle at any particular point it will return true for all
             if(dfs(adjacentNode,adj,visited,node)==true) return true;
 
         }
@@ -37,8 +38,9 @@ bool isCycle(vector<vector<int>>&edges,int V){
           if(  dfs(i,adj,visited,-1)==true) return true;
 
         }
-        return false;
     }
+            return false;
+
 
 }
 
@@ -46,7 +48,7 @@ bool isCycle(vector<vector<int>>&edges,int V){
 
 int main(){
     vector<vector<int>>edges={{0,1},{0,2},{0,3},{1,2},{3,4} };
-    int V= edges.size();
+    int V= 5;
    if( isCycle(edges,V) ){
     cout<<"true"<<endl;
    }
