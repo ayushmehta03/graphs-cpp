@@ -24,22 +24,15 @@ void dfs(int row,int col,vector<vector<int>>&vis,vector<vector<char>>&grid){
 int isLandCount(vector<vector<char>>&grid){
     int n=grid.size();
     int m=grid[0].size();
-
-    //declare the visited matrix for checking
     vector<vector<int>>vis(n,vector<int>(m,0));
-// traverse the grid matrix
-int cnt=0;
     for(int i=0;i<n;i++){
         for(int j=0;j<m;j++){
-        // condition satisfied
-        if(!vis[i][j]&&grid[i][j]=='1'){
-            cnt++;
+         if(!vis[i][j]&& grid[i][j]=='1'){
             dfs(i,j,vis,grid);
-        }
+         }
 
         }
     }
-    return cnt;
 }
 
 int main(){
