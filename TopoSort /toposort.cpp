@@ -5,15 +5,17 @@ using namespace std;
 
 
 void dfs(int node,vector<vector<int>>&adj,vector<bool>&vis,stack<int>&st){
-    vis[node]=1;
-    for(int i:adj[node]){
-        if(!vis[i]){
-            dfs(i,adj,vis,st);
-        }
+   vis[node]=1;
+   for(int i:adj[node]){
+    if(!vis[i]){
+        dfs(i,adj,vis,st);
     }
-    st.push(node);
-}
 
+   }
+   // while returing back push the node to the stack
+   st.push(node);
+}
+// consturct the adjcanet list
 vector<vector<int>>constructadj(int V,vector<vector<int>>&edges){
  vector<vector<int>>adj(V);
  for(auto it:edges){
@@ -25,13 +27,14 @@ vector<int>topologicalSort(int V,vector<vector<int>>&edges){
     stack<int>st;
     vector<bool>vis(V,false);
     vector<vector<int>>adj=constructadj(V,edges);
-
+// for component
     for(int i=0;i<V;i++){
         if(!vis[i]){
             dfs(i,adj,vis,st);
         }
     }
     vector<int>ans;
+    // use the principle of stak lifo
     while(!st.empty()){
         ans.push_back(st.top());
         st.pop();
