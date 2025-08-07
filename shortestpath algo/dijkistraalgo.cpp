@@ -8,13 +8,12 @@ vector<int> dijikstraAlgo(vector<pair<int,int>> adj[], vector<int>& parent, vect
     dis[src] = 0;
     int n = 6;
 
-    // Correct order: {distance, node}
     priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
     pq.push({0, src});
 
     while (!pq.empty()) {
         auto it = pq.top();
-        pq.pop(); // missing in your code
+        pq.pop(); 
         int distance = it.first;
         int node = it.second;
 
