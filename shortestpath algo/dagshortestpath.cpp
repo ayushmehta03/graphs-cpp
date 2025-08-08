@@ -16,29 +16,29 @@ void topoSort(int node, vector<vector<pair<int, int>>>& adj, vector<bool>& visit
 }
 
 vector<int>shortestPathDAG(int n,vector<vector<pair<int,int>>>&adj,int src){
-    vector<bool>visited(n,false);
-    stack<int>st;
-    for(int i=0;i<n;i++){
-        if(!visited[i]){
-            topoSort(i,adj,visited,st);
-        }
+vector<bool>vis(n,false);
+stack<int>st;
+for(int i=0;i<n;i++){
+    if(!vis[i]){
+        topoSort(i,adj,vis,st);
     }
-    vector<int>distance(n,INT_MAX);
-    distance[src]=0;
-    while(!st.empty()){
-        int node=st.top();
-        st.pop();
-        for(auto it:adj[node]){
-            int v=it.first;
-            int wt=it.second;
-            if(distance[node]+wt<distance[v]){
-                distance[v]=distance[node]+wt;
-            }
-        }
-    }
-    return distance;
-
 }
+vector<int>distance(n,INT_MAX);
+distance[src]=0;
+while(!st.empty()){
+    int node=st.top();
+    st.pop();
+    for(auto it:adj[node]){
+        int v=it.first;
+        int wt=it.second;
+        if(distance[node]+wt<distance[v]){
+            distance[v]=distance[node]+wt;
+        }
+    }
+}
+return distance;
+}
+
 
 int main(){
     // the edges vector contain start,to and the weight
@@ -53,14 +53,14 @@ int main(){
 };
 
 int n=6;
-vector<vector<pair<int, int>>> adj(n); 
-for(auto edge:edges){
-    int u=edge[0];
-    int v=edge[1];
-    int wt=edge[2];
-
-adj[u].push_back({v,wt});
+vector<vector<pair<int,int>>>adj(n);
+for(auto it:edges){
+    int u=it[0];
+    int v=it[1];
+    int wt=it[2];
+    adj[u].push_back({v,wt});
 }
-int src=0;
+    int src=0;
+
 vector<int>dist=shortestPathDAG(n,adj,src);
 }

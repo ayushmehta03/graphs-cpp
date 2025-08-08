@@ -5,9 +5,9 @@ using namespace std;
 
 // function to get the shortest distnace
 vector<int>shortestPath(vector<vector<int>>&adj,int src){
-    // calciulate the sixe of adjacency list
+    // calciulate the size of adjacency list
  int n=adj.size();
- // declare distance array with all elents as infinty for now
+ // declare distance array with all elements as infinty for now
     vector<int>dis(n,1e9);
     // starting point is 0 
     dis[src]=0;
