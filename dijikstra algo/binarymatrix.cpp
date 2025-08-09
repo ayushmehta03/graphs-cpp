@@ -18,7 +18,7 @@ if (grid[0][0] == 1 || grid[n-1][m-1] == 1) return -1;
 
         int delRow[8] = {-1, 1, 0, 0, -1, -1, 1, 1};
         int delCol[8] = {0, 0, -1, 1, -1, 1, -1, 1};
-        if(r==n-1 && c==m-1) return distance+1;
+        if(r==n-1 && c==m-1) return distance;
         for(int i=0;i<8;i++){
          int nRow=r+delRow[i];
          int nCol=c+delCol[i];
