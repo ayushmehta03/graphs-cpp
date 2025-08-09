@@ -52,15 +52,16 @@ int main() {
         {4, 5, 4},
         {5, 3, 1}
     };
-
+// no of edges
     int n = 6;
+    // adjacency list
     vector<pair<int, int>> adj[n];
 
     for (auto it : edges) {
         adj[it[0]].push_back({it[1], it[2]});
         adj[it[1]].push_back({it[0], it[2]});
     }
-
+  // parent vecttor for path recoginsaition
     vector<int> parent(n);
     for (int i = 0; i < n; i++) parent[i] = i;
     vector<int> dis(n, 1e9);
