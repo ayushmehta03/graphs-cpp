@@ -34,7 +34,7 @@ class DisjointSet{
 };
 
 bool isValid(int nRow, int nCol, int r, int c){
-    
+    return nRow>=0&&nRow<r&&nCol>=0&&nCol<c;
 
 }
 
@@ -60,11 +60,22 @@ vector<int>findIslands(vector<vector<int>>&operators,int n,int m){
         for(int idx=0;idx<4;idx++){
             int adjRow=row+delRow[idx];
             int adjCol=col+delCol[idx];
-            if(isValid(adjRow,adjCol,n,m));
+            if(isValid(adjRow,adjCol,n,m)){
+                if(vis[adjRow][adjCol]){
+                    int nodeNo=row*m+col;
+                    int adjnodeNo=adjRow*m+adjCol;
+                    if(ds.findUParent(nodeNo)!=ds.findUParent(adjnodeNo)){
+                        cnt--;
+                        ds.unionBySize(nodeNo,adjnodeNo);
+                    }
+                }
+            }
 
         }
+        ans.push_back(cnt);
 
     }
+    return ans;
 
 
 }
